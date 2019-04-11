@@ -1,0 +1,34 @@
+{
+  "name": "playground-bitcoin-blockcrypher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "bigi": "^1.4.2",
+    "bitcoinjs-lib": "^4.0.4",
+    "buffer": "^5.2.1",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "concurrently \"cd server && node app.js\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyucheng-zhu/playground-bitcoin-blockcrypher.git"
+  },
+  "keywords": [],
+  "author": "lyucheng zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyucheng-zhu/playground-bitcoin-blockcrypher/issues"
+  },
+  "homepage": "https://github.com/lyucheng-zhu/playground-bitcoin-blockcrypher#readme"
+}
