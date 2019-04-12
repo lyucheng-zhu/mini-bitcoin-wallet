@@ -1,5 +1,7 @@
 const initialState = {
-    user: {},
+    user: {
+      wallets:[]
+    },
     isAuth: false,
 }
 
@@ -37,6 +39,7 @@ export default (state = initialState, action) => {
       console.log('Dleteing wallet...');
       let _user = Object.assign({}, state.user);
       _user.wallets = _user.wallets.filter(wallet => wallet.Id !== action.walletId);
+      if (!_user.wallets) _user.wallets = [];
       localStorage.setItem("auth", JSON.stringify(_user));
       return {
         ...state,

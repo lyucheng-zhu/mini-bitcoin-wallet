@@ -35,16 +35,17 @@ class Wallet extends Component {
   }
 
   handleDeleteClick(walletId){
-    this.props.deleteWallet(walletId);
+    this.props.deleteWallet(this.props.user.token, walletId);
   }
 
-  handleAddClick(){
+  handleAddClick = (e) => {
+    e.preventDefault();
     let _wallet = {};
     _wallet.address = this.state.walletAddressInput;
     _wallet.publicKey = this.state.walletPublicKeyInput;
     _wallet.privateKey = this.state.walletPrivateKeyInput;
     _wallet.userId = this.props.user.Id;
-    this.props.addWallet(_wallet);
+    this.props.addWallet(this.props.user.token, _wallet);
   }
 
   // validate the form of inputs

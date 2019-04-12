@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import {
     signup,
     toggleCloseSignup,
+    toggleOpenSignin
  } from './../redux/actions/actions';
 
 class Signup extends Component {
@@ -15,7 +16,8 @@ class Signup extends Component {
 
     this.state = {
         username: "",
-        password: ""
+        password: "",
+        comfirmPassword: ""
     }
 
     this.handleClick = (e) => {
@@ -31,6 +33,12 @@ class Signup extends Component {
               }
           );
           //console.log(this.state);
+    };
+
+    this.goToSignin = (e) => {
+      e.preventDefault();
+      this.props.toggleCloseSignup();
+      this.props.toggleOpenSignin();
     };
 
   }
@@ -60,9 +68,19 @@ class Signup extends Component {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" name="password" onChange={this.handleChange} placeholder="Password" required/>
             </Form.Group>
+
+            <Form.Group controlId="formComfirmPassword">
+              <Form.Label>Comfirm Password</Form.Label>
+              <Form.Control type="password" name="comfirmPassword" onChange={this.handleChange} isInvalid={this.state.password !== this.state.comfirmPassword} placeholder="Comfirm Password" required/>
+              <Form.Control.Feedback type="invalid">The passwords you entered do not match.</Form.Control.Feedback>
+            </Form.Group>
+
             <Button variant="primary" type="submit" onClick={this.handleClick}>
               Sign up
             </Button>
+
+            <br/>
+            <Link href="#" onClick={this.goToSignin}>Already have an account? Sign in now.</Link>
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -81,5 +99,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     toggleCloseSignup,
-    signup
+    signup,
+    toggleOpenSignin
 })(Signup);
