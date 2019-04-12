@@ -10,6 +10,7 @@ import {
   searchTransaction
 } from './../redux/actions/actions';
 
+// This component is used to search an address or a transaction
 class Search extends Component {
   constructor(props) {
     super(props);

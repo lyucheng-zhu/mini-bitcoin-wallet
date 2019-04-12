@@ -10,6 +10,8 @@ import {
   addWallet
 } from './../redux/actions/actions';
 
+
+// This component is used to show all saved wallets of a user
 class Wallet extends Component {
   constructor(props) {
     super(props);

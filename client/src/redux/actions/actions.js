@@ -1,3 +1,6 @@
+/* All redux actions.
+   I am using the thunk middlewire to make async action dispatches */
+
 import axios from 'axios';
 const { history } = require('../store');
 const bitcoin = require("bitcoinjs-lib");
@@ -6,12 +9,14 @@ const buffer  = require('buffer');
 const API_URL = "http://localhost:5000/api";
 const BLOCKCRYPHER_URL = "https://api.blockcypher.com/v1/btc/test3";
 
+// Save the search contents for navigation
 export function searchContentsChange(searchInput) {
     return (dispatch) => {
         dispatch({type: 'SEARCH_Contents_CHANGE', searchContents: searchInput})
     }
 }
 
+// Get the details of a wallet address
 export function searchAddress(address){
   console.log('Searching an address');
   return (dispatch) => {
@@ -29,7 +34,7 @@ export function searchAddress(address){
   }
 }
 
-// get the details of a transaction based on its hash
+// Get the details of a transaction based on its hash
 export function searchTransaction(transaction){
   return (dispatch) => {
     console.log('Searching a transaction');
@@ -47,6 +52,7 @@ export function searchTransaction(transaction){
   }
 }
 
+// Make a payment using BlockCrypher API
 export function pay(payment){
   return (dispatch) => {
     console.log('Creating a transaction');
@@ -115,6 +121,8 @@ export function pay(payment){
   }
 }
 
+
+// Sign in
 export function login(username, password){
   return (dispatch) => {
     console.log('Loging in...');
@@ -147,6 +155,7 @@ export function login(username, password){
   }
 }
 
+// Sign up
 export function signup(username, password){
   return (dispatch) => {
     console.log('Signing up...');
@@ -179,6 +188,7 @@ export function signup(username, password){
   }
 }
 
+// Log out
 export function logout(){
   return (dispatch) => {
     console.log('Loging out...');
@@ -187,6 +197,7 @@ export function logout(){
   }
 }
 
+// Choose a saved wallet as payer
 export function choosePayer(index){
   console.log("Choosing wallet " + index + "as payer...");
   return (dispatch) => {
@@ -195,6 +206,7 @@ export function choosePayer(index){
   }
 }
 
+// Delete a saved wallet
 export function deleteWallet(token, walletId){
   return (dispatch) => {
     console.log("Deleting wallet " + walletId + "...");
@@ -218,6 +230,7 @@ export function deleteWallet(token, walletId){
   }
 }
 
+// Add a saved wallet
 export function addWallet(token, wallet){
   return (dispatch) => {
     console.log("Adding a wallet...");
@@ -249,30 +262,35 @@ export function addWallet(token, wallet){
   }
 }
 
+// Back to main page
 export function backToIndex() {
     return (dispatch) => {
         history.push("/");
     }
 }
 
+// Signin modal close
 export function toggleCloseSignin() {
     return (dispatch) => {
         dispatch({type: 'TOGGLE_MODAL_SIGNIN', modalModeSignin: false})
     }
 }
 
+// Signin modal open
 export function toggleOpenSignin() {
     return (dispatch) => {
         dispatch({type: 'TOGGLE_MODAL_SIGNIN', modalModeSignin: true})
     }
 }
 
+// Signup modal close
 export function toggleCloseSignup() {
     return (dispatch) => {
         dispatch({type: 'TOGGLE_MODAL_SIGNUP', modalModeSignup: false})
     }
 }
 
+// Signup modal open
 export function toggleOpenSignup() {
     return (dispatch) => {
         dispatch({type: 'TOGGLE_MODAL_SIGNUP', modalModeSignup: true})

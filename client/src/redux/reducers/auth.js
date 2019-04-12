@@ -1,3 +1,5 @@
+// redux reducers for authentication
+
 const initialState = {
     user: {
       wallets:[]
