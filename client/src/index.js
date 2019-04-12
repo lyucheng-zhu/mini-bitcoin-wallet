@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { Switch, Route, Router } from 'react-router-dom';
 
-import './assets/bootstrap.min.css';
+import './assets/css/bootstrap.min.css';
 
 import App from './App.js';
 
