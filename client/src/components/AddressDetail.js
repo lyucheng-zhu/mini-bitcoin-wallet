@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Table, Row } from 'react-bootstrap';
 import Search from "./Search";
 
 import {
@@ -41,24 +41,24 @@ class AddressDetail extends Component {
         return (
           <Container className="justify-content-md-center">
             <br/>
+            <Row className="justify-content-md-center">Wallet Details</Row>
+            <br/>
+            <Table bordered hover>
+              <tbody>
+                <tr>
+                    Address: {this.props.address.address}
+                </tr>
+                <tr>
+                    Balance: {this.props.address.balance}
+                </tr>
+              </tbody>
+            </Table>
+            <br/>
+            <Row className="justify-content-md-center">Comfirmed Transactions</Row>
             <br/>
             <Table striped bordered hover>
               <tbody>
-                <tr>
-                  <td>
-                  </td>
-                  <td>
-                    Wallet Address: {this.props.address.address}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                  </td>
-                  <td>
-                    Balance: {this.props.address.balance}
-                  </td>
-                </tr>
-                <tr><td>#</td><td>Comfirmed Transactions</td></tr>
+                <tr><td>#</td><td>Transaction Hash</td></tr>
                 {transactionList}
               </tbody>
             </Table>

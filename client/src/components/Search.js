@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Button, Form, Row, Col, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import bitcoinLogo from "../assets/img/bitcoin-logo.png";
 
@@ -28,8 +29,10 @@ class Search extends Component {
     <Container className="justify-content-md-center">
       <br/>
       <Row className="justify-content-md-center">
-        <Image src={bitcoinLogo} fluid />
-        <br/>
+        <Link href="/">
+          <Image src={bitcoinLogo} fluid/>
+          <br/>
+        </Link>
       </Row>
       <Form>
         <Form.Row>

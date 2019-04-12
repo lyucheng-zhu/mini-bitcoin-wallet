@@ -5,7 +5,6 @@ const buffer  = require('buffer');
 
 const API_URL = "http://localhost:5000/api";
 const BLOCKCRYPHER_URL = "https://api.blockcypher.com/v1/btc/test3";
-const TOKEN = "?token=" + "d340ecf46fa742c19f52e4c7bf1f2408";
 
 export function searchContentsChange(searchInput) {
     return (dispatch) => {
@@ -24,6 +23,7 @@ export function searchAddress(address){
       dispatch({type:'LOAD_ADDRESS_DETAIL', addressDetail: addressDetail});
       history.push('/address');
     }).catch((err) => {
+      alert(err);
       console.log(err);
     });
   }
@@ -41,6 +41,7 @@ export function searchTransaction(transaction){
       dispatch({type:'LOAD_TRANSACTION_DETAIL', transactionDetail: transactionDetail});
       history.push('/transaction');
     }).catch((err) => {
+      alert(err);
       console.log(err);
     });
   }
@@ -107,6 +108,7 @@ export function pay(payment){
         dispatch({type:'LOAD_TRANSACTION_DETAIL', transactionDetail: transactionDetail});
         history.push('/transaction');
       }).catch((err) => {
+        alert(err);
         console.log(err);
       });
     });
@@ -138,7 +140,10 @@ export function login(username, password){
         localStorage.setItem("auth", JSON.stringify(user));
         dispatch({type: 'LOG_IN', user: user});
       }
-    }).catch((err)=>console.log(err));
+    }).catch((err)=>{
+      alert(err);
+      console.log(err);
+    });
   }
 }
 
@@ -167,7 +172,10 @@ export function signup(username, password){
         dispatch({type: 'LOG_IN', user});
         history.push('/');
       }
-    }).catch((err)=>console.log(err));
+    }).catch((err)=>{
+      alert(err);
+      console.log(err);
+    });
   }
 }
 
@@ -187,25 +195,30 @@ export function choosePayer(index){
   }
 }
 
-export function deleteWallet(walletId){
+export function deleteWallet(token, walletId){
   return (dispatch) => {
     console.log("Deleting wallet " + walletId + "...");
     axios({
       url: API_URL + "/wallet/" + walletId,
       method: "delete",
+      headers: {Authorization: "Bearer " + token}
     }).then((res) => {
       let error = res.data.err;
       if (!!error) {
+        alert(error);
         console.log(error);
       } else {
         dispatch({type: 'DELETE_WALLET', walletId: walletId});
-        history.push('/wallet');
+        //history.push('/wallet');
       }
-    }).catch((err)=>console.log(err));
+    }).catch((err)=>{
+      alert(err);
+      console.log(err);
+    });
   }
 }
 
-export function addWallet(wallet){
+export function addWallet(token, wallet){
   return (dispatch) => {
     console.log("Adding a wallet...");
     axios({
@@ -215,19 +228,24 @@ export function addWallet(wallet){
         wallet: wallet
       }),
       headers : {
+        Authorization: "Bearer " + token,
         Accept: "application/json",
         "Content-Type": "application/json"
       }
     }).then((res) => {
       let error = res.data.err;
       if (!!error) {
+        alert(error);
         console.log(error);
       } else {
         let _wallet = res.data.wallet;
         dispatch({type: 'ADD_WALLET', wallet: _wallet});
-        history.push('/wallet');
+        //history.push('/wallet');
       }
-    }).catch((err)=>console.log(err));
+    }).catch((err)=>{
+      alert(err);
+      console.log(err);
+    });
   }
 }
 
