@@ -6,7 +6,7 @@ It is a project for the coding challenge (https://github.com/MarkdaleMGMT/transa
 
 It's still in Pre-Alpha version and uploaded for the preview.
 
-## Basic environment
+## Basic running environment
 
 Node.js + MYSQL
 
@@ -14,11 +14,13 @@ Node.js + MYSQL
 
 1. Clone the project into your folder.
 
-2. Run the wallet.sql in your MYSQL Command Line Client locally.
+2. Run wallet.sql in your MYSQL Command Line Client locally.
 
-3. Set the environment variables MYSQL_LOCAL_PASSWORD to the password of your local MYSQL root account.
+3. Set the environment variable MYSQL_LOCAL_PASSWORD to the password of your local MYSQL root account.
 
-4. CD into the folder. Make sure the port 3306 is open for MYSQL, the port 5000 is open for the client and the port 5001 is open for the server. Use Node.js Command Line to run "npm start" and you try the web application now.
+4. On your Node.js Command Line, cd into the project folder and run "npm start". Make sure the port 3306 is open for MYSQL, the port 5000 is open for the client and the port 5001 is open for the server. 
+
+5.You have a try on this web application now.
 
 ## About Me
 
