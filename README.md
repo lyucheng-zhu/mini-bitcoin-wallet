@@ -1,6 +1,6 @@
 # Mini Bitcoin Wallet
 
-**At present, it is only used for the bitcoin _testnet_.**
+**At present, it is only used for the bitcoin _!!testnet!!_.**
 
 **The unit of bitcoin is Satoshi(0.00000001 BTC)**
 
@@ -34,15 +34,15 @@ MySQL: 8.0 or above
 
 5. You can have a try on this web application now.
 
-## Basci function
+## Basic function
 
 1. The home page. You can search a bitcoin wallet address or transaction here.
 
 ![Alt text](/screenshots/home.jpg?raw=true "Home page")
 
-![Alt text](/screenshots/addressDetail.jpg?raw=true "Wallet Address Detail")
+![Alt text](/screenshots/walletAddressDetail.jpg?raw=true "Wallet Address Detail")
 
-![Alt text](/screenshots/transaction.jpg?raw=true "Transaction Detail")
+![Alt text](/screenshots/transactionDetail.jpg?raw=true "Transaction Detail")
 
 2. At the right top corner of the home page, you can click the button to sign in or sign up to use a payment function.
 
