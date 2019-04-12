@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Container, Table, Row } from 'react-bootstrap';
 import Search from "./Search";
 
+// This component is used to display the details of a certain transaction
 class TransactionDetail extends Component {
     render() {
       if (!this.props.transaction.payers) {

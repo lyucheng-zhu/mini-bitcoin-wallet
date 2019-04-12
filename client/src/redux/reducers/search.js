@@ -1,3 +1,5 @@
+// Redux reducers for search contents
+
 const initialState = {
     address: {},
     transaction: {}

@@ -1,3 +1,7 @@
+// Authentication wrapper for components
+// Wrapped components would display only if a user signed in
+// Here, I use JWT for authentication
+
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';

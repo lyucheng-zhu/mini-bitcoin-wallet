@@ -1,3 +1,4 @@
+// Redux reducers for modal open/close
 
 const defaultState = {
   appName: '',

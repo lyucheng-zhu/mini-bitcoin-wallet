@@ -6,6 +6,7 @@ import {
   pay
 } from './../redux/actions/actions';
 
+// This component is used to make a payment
 class Payment extends Component {
   constructor(props) {
     super(props);

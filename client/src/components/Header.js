@@ -9,6 +9,7 @@ import {
 
 import storiesLogo from "../assets/img/stories-logo.svg";
 
+// This component is used as the header of each page
 class Header extends Component {
     render() {
         return (

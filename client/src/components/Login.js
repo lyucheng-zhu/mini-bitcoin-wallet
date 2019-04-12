@@ -9,8 +9,7 @@ import {
     toggleOpenSignup
  } from './../redux/actions/actions';
 
-//import '../assets/login.css';
-
+// This component is used to show the signin modal
 class Login extends Component {
 
   constructor(props){
